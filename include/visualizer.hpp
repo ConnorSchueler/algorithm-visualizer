@@ -20,6 +20,7 @@ class Visualizer {
     void generateData();
     void sleep();
     void resetMarkers();
+    void renderSorted();
 
     virtual void sort() = 0;
 };

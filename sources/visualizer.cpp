@@ -22,15 +22,17 @@ void Visualizer::generateData(){
 }
 
 void Visualizer::render(){
-    std::cout << "\033[2J\033[1;1H"; //clear screen
+    std::cout << "\033[2J\033[1;1H"; // clear screen
     for (int i=max_val; i>0; i--){
         for (int j=0; static_cast<size_t>(j)<data.size(); j++)
         {
             if (data[j]>=i){
                 if(j==mark_a or j==mark_b){
-                    std::cout << " ! "; // marked data
+                    std::cout << "\033[31m"; // red
+                    std::cout << " █ "; // marked data
+                    std::cout << "\033[0m"; // reset to white
                 } else {
-                    std::cout << " # "; // data
+                    std::cout << " █ "; // data
                 }
             } else {
                     std::cout << "   "; 
@@ -49,4 +51,11 @@ void Visualizer::sleep(){
 void Visualizer::resetMarkers(){
     mark_a=-1;
     mark_b=-1;
+}
+
+void Visualizer::renderSorted(){
+    resetMarkers();
+    std::cout << "\033[32m";
+    render();
+    std::cout << "\033[0m";
 }

@@ -1,5 +1,6 @@
 #include "bubble_sort.hpp"
 #include <utility>
+#include <iostream>
 
 BubbleSort::BubbleSort(int size, int max_val, int delay): Visualizer(size, max_val, delay){};
 
@@ -20,6 +21,5 @@ void BubbleSort::sort(){
             mark_b++;
         }
     }
-    resetMarkers();
-    render();
+    renderSorted();
 }
