@@ -18,6 +18,8 @@ class Visualizer {
 
     void render();
     void generateData();
+    void sleep();
+    void resetMarkers();
 
     virtual void sort() = 0;
 };

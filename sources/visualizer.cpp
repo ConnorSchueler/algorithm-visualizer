@@ -1,10 +1,15 @@
 #include "visualizer.hpp"
 #include <random>
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 Visualizer::Visualizer(int size, int max_val, int delay): max_val(max_val), delay(delay), mark_a(-1), mark_b(-1) {
     data.resize(size);
+    generateData();
 }
+
+Visualizer::~Visualizer(){}
 
 void Visualizer::generateData(){
     std::random_device rd;
@@ -17,8 +22,9 @@ void Visualizer::generateData(){
 }
 
 void Visualizer::render(){
-    for (size_t i=max_val; i>0; i--){
-        for (size_t j=0; j<data.size(); j++)
+    std::cout << "\033[2J\033[1;1H"; //clear screen
+    for (int i=max_val; i>0; i--){
+        for (int j=0; static_cast<size_t>(j)<data.size(); j++)
         {
             if (data[j]>=i){
                 if(j==mark_a or j==mark_b){
@@ -34,4 +40,13 @@ void Visualizer::render(){
         std::cout << '\n';
     }
     std::cout << '\n';
+}
+
+void Visualizer::sleep(){
+    std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+}
+
+void Visualizer::resetMarkers(){
+    mark_a=-1;
+    mark_b=-1;
 }
