@@ -2,7 +2,7 @@
 #include <utility>
 #include <iostream>
 
-BubbleSort::BubbleSort(int size, int max_val, int delay): Visualizer(size, max_val, delay){};
+BubbleSort::BubbleSort(int size, int max_val, int delay): Visualizer(size, max_val, delay){}
 
 void BubbleSort::sort(){
     bool sorted=false;
