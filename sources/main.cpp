@@ -1,5 +1,6 @@
 #include "bubble_sort.hpp"
 #include "selection_sort.hpp"
+#include "get_input.hpp"
 #include <iostream>
 
 int main(){
@@ -10,15 +11,10 @@ int main(){
     std::cout << "========================================\n";
     std::cout << "\033[0m"; // reset to white
 
-    int size, height, delay, algo;
-    std::cout << " [1] Number of bars: ";
-    std::cin >> size;
-    std::cout << " [2] Maximal bar height: ";
-    std::cin >> height;
-    std::cout << " [3] Delay in ms: ";
-    std::cin >> delay;
-    std::cout << " [4] Algorithm (1=Bubble, 2=Selection): ";
-    std::cin >> algo;
+    int size = getValidInput(" [1] Number of bars (2-100): ", 2, 100);
+    int height = getValidInput(" [2] Maximal bar height (5-50): ", 5, 50);
+    int delay = getValidInput(" [3] Delay in ms (1-500): ", 1, 500);
+    int algo = getValidInput(" [4] Algorithm (1=Bubble, 2=Selection): ", 1, 2);
 
     Visualizer* vis = nullptr;
     switch (algo){
@@ -33,5 +29,5 @@ int main(){
     }
 
     vis->sort();
-    delete vis;
+    delete vis; 
 }
