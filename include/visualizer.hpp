@@ -12,6 +12,9 @@ class Visualizer {
     int mark_a;
     int mark_b;
 
+    int comparisons = 0;
+    int swaps = 0;
+
     public:
     Visualizer(int size, int max_val, int delay);
     virtual ~Visualizer();

@@ -11,9 +11,13 @@ void SelectionSort::sort(){
             mark_b=j;
             render();
             sleep();
+            comparisons++;
             if (data[j]<data[min_index]){min_index=j;}
         }
-        std::swap(data[min_index], data[i]);
+        if (min_index != i){
+            std::swap(data[min_index], data[i]); 
+            swaps++;
+        }
     }
     renderSorted();
 }

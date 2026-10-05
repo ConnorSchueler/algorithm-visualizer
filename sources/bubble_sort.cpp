@@ -11,8 +11,10 @@ void BubbleSort::sort(){
             mark_b=1;
             sorted=true;
         while(static_cast<size_t>(mark_b)<data.size()){
+            comparisons++;
             if(data[mark_a]>data[mark_b]){
                 std::swap(data[mark_a], data[mark_b]);
+                swaps++;
                 sorted=false;
             }
             render();

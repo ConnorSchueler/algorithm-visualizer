@@ -25,11 +25,14 @@ int QuickSort::partition(int low, int high){
         mark_a=i;
         render();
         sleep();
+        comparisons++;
         if (data[i] < piv){
             swap++;
             std::swap(data[i], data[swap]);
+            swaps++;
         }
     }
     std::swap(data[swap+1], data[high]);
+    swaps++;
     return swap+1;
 }

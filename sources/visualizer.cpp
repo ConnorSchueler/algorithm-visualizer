@@ -58,4 +58,9 @@ void Visualizer::renderSorted(){
     std::cout << "\033[32m";
     render();
     std::cout << "\033[0m";
+
+    std::cout << "\n=== STATISTICS ===\n";
+    std::cout << "Comparisons: " << comparisons << '\n';
+    std::cout << "Swaps: " << swaps << '\n';
+    std::cout << "=================\n";
 }
